@@ -13,8 +13,19 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        noto: ['var(--font-noto)'],
+        courierPrime: ['var(--font-crPrime)'],
+      },
+      animation:{
+        'pulse-slow': 'pulse 4s cubic-bezier(0.2, 0.4, 0.8, 0.6) infinite;',
+      },
+      keyframes: {
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@headlessui/tailwindcss')
+  ],
 };
 export default config;
