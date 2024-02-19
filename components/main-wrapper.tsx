@@ -33,7 +33,8 @@ const MainWrapper = ({ timestamp }: { timestamp: EpochTimeStamp }) => {
     theme: useLocalStorageB64('theme', {
       background: "/bg-0.jpg",
       color: "black",
-      size: 1
+      size: 1,
+      textSize: 1,
     }),
     title: useLocalStorageB64('title', "考試時鐘"),
     hour24: useLocalStorageB64('hour24', true),
@@ -105,9 +106,9 @@ const MainWrapper = ({ timestamp }: { timestamp: EpochTimeStamp }) => {
             <div className="flex flex-col">
               {schedule[0].filter(v => timeStrToInt(v.startTimestamp) <= time).slice(-2).map((item) => {
                 if (timeStrToInt(item.endTimestamp) > time)
-                  return (<span className={`${isIdle ? "opacity-85" : "opacity-100"} font-[700] font-noto animate-pulse`} style={{ fontSize: `${36 * config.get("theme").size}px` }}>目前：{item.text} {item.startTimestamp}-{item.endTimestamp}</span>)
+                  return (<span className={`${isIdle ? "opacity-85" : "opacity-100"} font-[700] font-noto animate-pulse`} style={{ fontSize: `${36 * config.get("theme").textSize}px` }}>目前：{item.text} {item.startTimestamp}-{item.endTimestamp}</span>)
                 else
-                  return (<span key={item.index} className={`${isIdle ? "opacity-35" : "opacity-65"} font-[500] font-noto`} style={{ fontSize: `${34 * config.get("theme").size}px` }}>{item.text} {item.startTimestamp}-{item.endTimestamp}</span>)
+                  return (<span key={item.index} className={`${isIdle ? "opacity-35" : "opacity-65"} font-[500] font-noto`} style={{ fontSize: `${34 * config.get("theme").textSize}px` }}>{item.text} {item.startTimestamp}-{item.endTimestamp}</span>)
               })}
             </div>
           </div>
@@ -125,7 +126,7 @@ const MainWrapper = ({ timestamp }: { timestamp: EpochTimeStamp }) => {
             </div>
             <div className="flex flex-col">
               {schedule[0].filter(v => timeStrToInt(v.startTimestamp) > time).map((item, key) => {
-                return (<span key={item.index} className={`${isIdle ? "opacity-35" : "opacity-65"} font-[500] font-noto`} style={{ fontSize: `${34 - (key * 2) * config.get("theme").size}px` }}>{item.text} {item.startTimestamp}-{item.endTimestamp}</span>)
+                return (<span key={item.index} className={`${isIdle ? "opacity-35" : "opacity-65"} font-[500] font-noto`} style={{ fontSize: `${34 - (key * 1.5) * config.get("theme").textSize}px` }}>{item.text} {item.startTimestamp}-{item.endTimestamp}</span>)
               })}
             </div>
           </div>

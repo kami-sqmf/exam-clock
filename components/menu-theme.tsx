@@ -8,8 +8,13 @@ const MenuTheme = ({ config }: { config: ConfigWithState; }) => {
     <>
       <div className='flex space-x-3 items-center'>
         <button className="bg-gray-700 rounded py-1 px-2" onClick={() => config.set("theme", { ...config.get("theme"), size: config.get("theme").size - 0.2 })}>小</button>
-        <span className="text-xl">字體大小</span>
+        <span className="text-xl">時鐘大小</span>
         <button className="bg-gray-700 rounded py-1 px-2" onClick={() => config.set("theme", { ...config.get("theme"), size: config.get("theme").size + 0.2 })}>大</button>
+      </div>
+      <div className='flex space-x-3 items-center'>
+        <button className="bg-gray-700 rounded py-1 px-2" onClick={() => config.set("theme", { ...config.get("theme"), size: config.get("theme").textSize - 0.2 })}>小</button>
+        <span className="text-xl">文字大小</span>
+        <button className="bg-gray-700 rounded py-1 px-2" onClick={() => config.set("theme", { ...config.get("theme"), size: config.get("theme").textSize + 0.2 })}>大</button>
       </div>
       {/* <div className='space-x-2'>
         <span>字體顏色</span>

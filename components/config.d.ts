@@ -14,6 +14,7 @@ interface ConfigWithState extends ConfigValues {
 
 type Theme = {
   size: number;
+  textSize: number;
   color: string;
   background: string;
 }
