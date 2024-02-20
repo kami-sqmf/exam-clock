@@ -1,7 +1,5 @@
-import { Dispatch, SetStateAction } from "react";
-import { ConfigWithState, Schedule } from "./config";
-import { padZero } from "./clock";
 import Image from "next/image";
+import { ConfigWithState } from "./config";
 
 const MenuTheme = ({ config }: { config: ConfigWithState; }) => {
   return (
@@ -12,9 +10,9 @@ const MenuTheme = ({ config }: { config: ConfigWithState; }) => {
         <button className="bg-gray-700 rounded py-1 px-2" onClick={() => config.set("theme", { ...config.get("theme"), size: config.get("theme").size + 0.2 })}>大</button>
       </div>
       <div className='flex space-x-3 items-center'>
-        <button className="bg-gray-700 rounded py-1 px-2" onClick={() => config.set("theme", { ...config.get("theme"), size: config.get("theme").textSize - 0.2 })}>小</button>
+        <button className="bg-gray-700 rounded py-1 px-2" onClick={() => config.set("theme", { ...config.get("theme"), textSize: config.get("theme").textSize - 0.2 })}>小</button>
         <span className="text-xl">文字大小</span>
-        <button className="bg-gray-700 rounded py-1 px-2" onClick={() => config.set("theme", { ...config.get("theme"), size: config.get("theme").textSize + 0.2 })}>大</button>
+        <button className="bg-gray-700 rounded py-1 px-2" onClick={() => config.set("theme", { ...config.get("theme"), textSize: config.get("theme").textSize + 0.2 })}>大</button>
       </div>
       {/* <div className='space-x-2'>
         <span>字體顏色</span>

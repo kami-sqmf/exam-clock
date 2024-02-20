@@ -118,7 +118,7 @@ const MainWrapper = ({ timestamp }: { timestamp: EpochTimeStamp }) => {
               {schedule[0].filter(v => timeStrToInt(v.startTimestamp) > time).map((e, index, arr) => {
                 return (
                   <div key={index}>
-                    {index == 0 ? <Line height={12} size={config.get("theme").size} /> : <Line height={24} size={config.get("theme").size} />}
+                    {index == 0 ? <Line height={12} size={config.get("theme").textSize} /> : <Line height={24} size={config.get("theme").textSize} />}
                     <Dot className="" />
                   </div>
                 )
@@ -126,7 +126,7 @@ const MainWrapper = ({ timestamp }: { timestamp: EpochTimeStamp }) => {
             </div>
             <div className="flex flex-col">
               {schedule[0].filter(v => timeStrToInt(v.startTimestamp) > time).map((item, key) => {
-                return (<span key={item.index} className={`${isIdle ? "opacity-35" : "opacity-65"} font-[500] font-noto`} style={{ fontSize: `${34 - (key * 1.5) * config.get("theme").textSize}px` }}>{item.text} {item.startTimestamp}-{item.endTimestamp}</span>)
+                return (<span key={item.index} className={`${isIdle ? "opacity-35" : "opacity-65"} font-[500] font-noto`} style={{ fontSize: `${34 * config.get("theme").textSize - (key * 1.4)}px` }}>{item.text} {item.startTimestamp}-{item.endTimestamp}</span>)
               })}
             </div>
           </div>
@@ -148,7 +148,7 @@ const MainWrapper = ({ timestamp }: { timestamp: EpochTimeStamp }) => {
 }
 
 const Line = ({ height, size }: { height: number; size: number }) => (
-  <div className={`w-1 rounded-full border border-gray-300 bg-gray-200`} style={{ height: `${height * size}px`, marginTop: `${8}px`, marginBottom: `${8}px` }}></div>
+  <div className={`w-1 rounded-full border border-gray-300 bg-gray-200`} style={{ height: `${height * (size * (1.2 + size * 0.2))}px`, marginTop: `${8 * (size * 0.4)}px`, marginBottom: `${12 * (size * 0.4)}px` }}></div>
 );
 
 const Dot = ({ className = "" }: { className?: string }) => (
