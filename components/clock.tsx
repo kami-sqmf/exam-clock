@@ -16,17 +16,12 @@ const Clock = ({ timestamp, config, className }: { timestamp: EpochTimeStamp, co
     const timer = setInterval(() => {
       [hour, minute, second] = getCurrentTime();
       const tmpIsPm = checkPM(hour);
-      if (tmpIsPm != isPM) setIsPM(tmpIsPm);
-      const tmpH1 = padZero(hour)[0];
-      if (tmpH1 != h1) setH1(tmpH1);
-      const tmpH2 = padZero(hour)[1];
-      if (tmpH2 != h2) setH2(tmpH2);
-      const tmpM1 = padZero(minute)[0];
-      if (tmpM1 != m1) setM1(tmpM1);
-      const tmpM2 = padZero(minute)[1];
-      if (tmpM2 != m2) setM2(tmpM2);
-      const tmpS1 = padZero(second)[0];
-      if (tmpS1 != s1) setS1(tmpS1);
+      if (tmpIsPm !== isPM) setIsPM(tmpIsPm);
+      setH1(padZero(hour)[0]);
+      setH2(padZero(hour)[1]);
+      setM1(padZero(minute)[0]);
+      setM2(padZero(minute)[1]);
+      setS1(padZero(second)[0]);
       setS2(padZero(second)[1]);
     }, 1000);
     return () => clearInterval(timer)
